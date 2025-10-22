@@ -51,12 +51,16 @@ pipeline {
             }
         }
 
-        stage('Run Docker Container') {
-            steps {
-                 // Run the new container with mapped port
-                bat "docker run -d --name %CONTAINER_NAME% -p %HOST_PORT%:%CONTAINER_PORT% %IMAGE_NAME%"
-            }
-        }
+   stage('Run Docker Container') {
+    steps {
+        // Remove old container if exists and run new one
+        bat """
+        docker rm -f %CONTAINER_NAME% || echo Container does not exist
+        docker run -d --name %CONTAINER_NAME% -p %HOST_PORT%:%CONTAINER_PORT% %IMAGE_NAME%
+        """
+    }
+}
+
     }
 
     post {
