@@ -4,7 +4,6 @@ pipeline {
     tools {
         maven 'MAVEN'  // Maven installation
         jdk 'JDK25'    // JDK installation
-        docker 'DOCKER' // Docker installation configured in Jenkins
     }
 
     environment {
