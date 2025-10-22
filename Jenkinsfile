@@ -36,12 +36,14 @@ pipeline {
         }
     }
 
-    post {
+   post {
         success {
-            echo 'Build and tests succeeded!'
+            echo 'Build succeeded!'
+            // Archive the JAR file
+            archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
         }
         failure {
-            echo 'Build or tests failed.'
+            echo 'Build failed.'
         }
     }
 }
