@@ -7,7 +7,7 @@ pipeline {
     }
 
     environment {
-        IMAGE_NAME = 'my-java-app:latest' // Docker image name
+        IMAGE_NAME = 'my-newjava-app:latest' // Docker image name
         CONTAINER_NAME = 'java-app'       // Docker container name
         HOST_PORT = '9090'                // Port on host (to avoid conflict with Jenkins)
         CONTAINER_PORT = '8080'           // Port your app listens to inside container
