@@ -53,9 +53,7 @@ pipeline {
 
         stage('Run Docker Container') {
             steps {
-                // Stop any existing container
-                bat "docker rm -f %CONTAINER_NAME% || exit 0"
-
+                
                 // Run the new container with mapped port
                 bat "docker run -d --name %CONTAINER_NAME% -p %HOST_PORT%:%CONTAINER_PORT% %IMAGE_NAME%"
             }
